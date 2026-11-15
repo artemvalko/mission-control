@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animation Scenes</title>
+  <meta name="description" content="Debug page: play every Mission Control animation scene in isolation.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <!-- modulepreload:start (all JS modules — parallel fetch; keep in sync when adding modules) -->
+  <link rel="modulepreload" href="js/data/bundles.js">
+  <link rel="modulepreload" href="js/data/components.js">
+  <link rel="modulepreload" href="js/data/disposal.js">
+  <link rel="modulepreload" href="js/data/events.js">
+  <link rel="modulepreload" href="js/data/glossary.js">
+  <link rel="modulepreload" href="js/data/groundStations.js">
+  <link rel="modulepreload" href="js/data/instruments.js">
+  <link rel="modulepreload" href="js/data/launchers.js">
+  <link rel="modulepreload" href="js/data/missionDependencies.js">
+  <link rel="modulepreload" href="js/data/orbits.js">
+  <link rel="modulepreload" href="js/data/realMissions.js">
+  <link rel="modulepreload" href="js/data/roles.js">
+  <link rel="modulepreload" href="js/data/scenarios.js">
+  <link rel="modulepreload" href="js/data/sources.js">
+  <link rel="modulepreload" href="js/engine/achievements.js">
+  <link rel="modulepreload" href="js/engine/advisor.js">
+  <link rel="modulepreload" href="js/engine/attempt.js">
+  <link rel="modulepreload" href="js/engine/dependencies.js">
+  <link rel="modulepreload" href="js/engine/explain.js">
+  <link rel="modulepreload" href="js/engine/goals.js">
+  <link rel="modulepreload" href="js/engine/matching.js">
+  <link rel="modulepreload" href="js/engine/objectives.js">
+  <link rel="modulepreload" href="js/engine/outcome.js">
+  <link rel="modulepreload" href="js/engine/resources.js">
+  <link rel="modulepreload" href="js/engine/roleGoals.js">
+  <link rel="modulepreload" href="js/engine/scoring.js">
+  <link rel="modulepreload" href="js/engine/simulation.js">
+  <link rel="modulepreload" href="js/engine/systemMap.js">
+  <link rel="modulepreload" href="js/engine/validation.js">
+  <link rel="modulepreload" href="js/engine/verdicts.js">
+  <link rel="modulepreload" href="js/main.js">
+  <link rel="modulepreload" href="js/state/actions.js">
+  <link rel="modulepreload" href="js/state/initialState.js">
+  <link rel="modulepreload" href="js/state/reducer.js">
+  <link rel="modulepreload" href="js/state/store.js">
+  <link rel="modulepreload" href="js/ui/animations/balanceScale.js">
+  <link rel="modulepreload" href="js/ui/animations/burnUp.js">
+  <link rel="modulepreload" href="js/ui/animations/cardFlip.js">
+  <link rel="modulepreload" href="js/ui/animations/constellation.js">
+  <link rel="modulepreload" href="js/ui/animations/core.js">
+  <link rel="modulepreload" href="js/ui/animations/countdown.js">
+  <link rel="modulepreload" href="js/ui/animations/debris.js">
+  <link rel="modulepreload" href="js/ui/animations/discovery.js">
+  <link rel="modulepreload" href="js/ui/animations/endOfLife.js">
+  <link rel="modulepreload" href="js/ui/animations/goConsole.js">
+  <link rel="modulepreload" href="js/ui/animations/groundTrack.js">
+  <link rel="modulepreload" href="js/ui/animations/hardwareFailure.js">
+  <link rel="modulepreload" href="js/ui/animations/index.js">
+  <link rel="modulepreload" href="js/ui/animations/instrumentView.js">
+  <link rel="modulepreload" href="js/ui/animations/launchSuccess.js">
+  <link rel="modulepreload" href="js/ui/animations/missionLost.js">
+  <link rel="modulepreload" href="js/ui/animations/missionPartial.js">
+  <link rel="modulepreload" href="js/ui/animations/missionSuccess.js">
+  <link rel="modulepreload" href="js/ui/animations/montage.js">
+  <link rel="modulepreload" href="js/ui/animations/oceanReentry.js">
+  <link rel="modulepreload" href="js/ui/animations/orbitView.js">
+  <link rel="modulepreload" href="js/ui/animations/patch.js">
+  <link rel="modulepreload" href="js/ui/animations/solarFlare.js">
+  <link rel="modulepreload" href="js/ui/animations/tooHeavy.js">
+  <link rel="modulepreload" href="js/ui/animations/tugRemoval.js">
+  <link rel="modulepreload" href="js/ui/card.js">
+  <link rel="modulepreload" href="js/ui/dom.js">
+  <link rel="modulepreload" href="js/ui/gallery.js">
+  <link rel="modulepreload" href="js/ui/goalStrip.js">
+  <link rel="modulepreload" href="js/ui/icons.js">
+  <link rel="modulepreload" href="js/ui/router.js">
+  <link rel="modulepreload" href="js/ui/satellite.js">
+  <link rel="modulepreload" href="js/ui/screens/brains.js">
+  <link rel="modulepreload" href="js/ui/screens/common.js">
+  <link rel="modulepreload" href="js/ui/screens/comms.js">
+  <link rel="modulepreload" href="js/ui/screens/finalCheck.js">
+  <link rel="modulepreload" href="js/ui/screens/launchPrep.js">
+  <link rel="modulepreload" href="js/ui/screens/operations.js">
+  <link rel="modulepreload" href="js/ui/screens/orbit.js">
+  <link rel="modulepreload" href="js/ui/screens/pickMission.js">
+  <link rel="modulepreload" href="js/ui/screens/power.js">
+  <link rel="modulepreload" href="js/ui/screens/results.js">
+  <link rel="modulepreload" href="js/ui/screens/rocket.js">
+  <link rel="modulepreload" href="js/ui/screens/science.js">
+  <link rel="modulepreload" href="js/ui/screens/size.js">
+  <link rel="modulepreload" href="js/ui/screens/start.js">
+  <link rel="modulepreload" href="js/ui/sidebar.js">
+  <link rel="modulepreload" href="js/ui/sound.js">
+  <link rel="modulepreload" href="js/ui/steps.js">
+  <link rel="modulepreload" href="js/ui/storage.js">
+  <link rel="modulepreload" href="js/ui/tooltip.js">
+  <link rel="modulepreload" href="js/ui/view.js">
+  <link rel="modulepreload" href="js/utils/format.js">
+  <link rel="modulepreload" href="js/utils/random.js">
+  <link rel="modulepreload" href="js/utils/share.js">
+  <!-- modulepreload:end -->
+</head>
+<body data-screen="animations">
+  <div class="anim-debug">
+    <header>
+      <h1>Animation scenes</h1>
+      <p class="muted">Every scene from <code>js/ui/animations/</code>, played with real sample designs and simulations. Each has Skip; with <em>prefers-reduced-motion</em> you see the final frame + caption.</p>
+    </header>
+    <div id="groups"></div>
+    <div id="stage"></div>
+    <p id="status" class="muted" aria-live="polite">Pick a scene.</p>
+  </div>
+
+  <script type="module">
+    import { h } from './js/ui/dom.js';
+    import { createInitialState } from './js/state/initialState.js';
+    import { reducer } from './js/state/reducer.js';
+    import * as A from './js/state/actions.js';
+    import { runSimulation } from './js/engine/simulation.js';
+    import { describeOutcome } from './js/engine/outcome.js';
+    import * as S from './js/ui/animations/index.js';
+    import { getLauncher } from './js/data/launchers.js';
+
+    // ── Sample designs: the three correct research builds (built with real actions so bundles run)
+    const BUILDS = {
+      comms: ['mission_comms_iot', 'str_6u', ['payload_iot_sdr', 'ant_iot_deploy'], 'pack_6u_60', 'ttc_uhf', 'dl_sband', 'gs_iot_gateways', 'leo_550', 'lv_falcon9_rideshare', 'dep_cubesat'],
+      weather: ['mission_weather_mw', 'str_6u_weather', ['payload_mw_radiometer', 'radiometer_calibration'], 'pack_6u_80', 'ttc_uhf', 'science_sband', 'gs_weather_science', 'sso_550_650', 'lv_falcon9_rideshare', 'dep_cubesat'],
+      nav: ['mission_navigation_meo', 'str_gnss_meo', ['clock_phm_rubidium_4', 'nav_signal_rf', 'antenna_lband_nav'], 'pack_gnss', 'ttc_c_s_band', null, 'gs_gnss_monitoring', 'meo_gnss', 'lv_f9_dedicated_meo', 'dep_large_adapter'],
+    };
+    const design = (key, extra = []) => {
+      const [sid, size, payload, pack, ttc, dl, ground, orbit, lv, dep] = BUILDS[key];
+      let st = reducer(createInitialState(), A.setDifficulty('easy'));
+      st = [A.selectScenario(sid), A.selectComponent('structure', size), ...payload.map(A.addInstrument), A.selectPowerPack(pack), A.selectComponent('comms', ttc),
+        ...(dl ? [A.selectComponent('downlink', dl)] : []), A.selectGround(ground), A.selectOrbit(orbit), A.selectLauncher(lv), A.selectDeployer(dep),
+        A.togglePrep('tests', true), A.togglePrep('licence', true), A.togglePrep('disposal', true), ...extra].reduce(reducer, st);
+      return st;
+    };
+    const comms = design('comms');
+    const weather = design('weather');
+    const nav = design('nav');
+    const noBattery = design('comms', [A.selectComponent('battery', 'none')]);
+    const wrongGround = design('weather', [A.selectGround('gs_iot_gateways')]);
+    const heavy = design('comms', [A.addInstrument('payload_mw_radiometer'), A.addInstrument('radiometer_calibration')]);
+    const gto = design('nav', [A.selectLauncher('lv_f9_gto_standard')]);
+
+    const simOf = (st, want = () => true, anyway = false) => { for (let sd = 1; sd < 3000; sd++) { const r = runSimulation(st, sd, [], { autoChoice: 0, anyway }); if (want(r)) return r; } return runSimulation(st, 1, [], { autoChoice: 0, anyway }); };
+    const heavySim = simOf(heavy, () => true, true);
+    const gtoSim = simOf(gto, () => true, true);
+    const stage = document.getElementById('stage');
+    const status = document.getElementById('status');
+    const launcherOf = (st) => getLauncher(st.design.launcherId);
+    const orbitScene = (st, label, anyway = false) => async () => {
+      const sim = simOf(st, (r) => r.reachedOrbit, anyway);
+      stage.__orbitView = null;
+      await S.orbitView(stage, { state: st, sim, toMonth: Math.min(sim.summary.monthsOperated, 12) });
+      return label;
+    };
+    const ev = (scene, extra = {}) => async () => {
+      await S.orbitView(stage, { state: comms, sim: simOf(comms, (r) => r.reachedOrbit), toMonth: 0 });
+      const v = S.getOrbitView(stage);
+      const p = v.satPos();
+      await scene(v.overlay, { x: p.x, y: p.y, state: comms, phase: 'intro', ...extra });
+      await scene(v.overlay, { x: p.x, y: p.y, state: comms, phase: 'outcome', choiceIndex: extra.choiceIndex ?? 0, caption: extra.caption ?? 'Outcome caption from the chosen option.', ...extra });
+    };
+
+    const GROUPS = {
+      'Launch': {
+        '1 Countdown & liftoff': () => S.countdown(stage, { launcher: launcherOf(comms), caption: 'Liftoff!', hold: true }),
+        '2 Launch success': () => S.launchSuccess(stage, { state: nav, caption: 'In orbit! The Falcon 9 delivered your 700 kg satellite to MEO.' }),
+        '4a Too heavy (NO-GO simulated)': () => S.tooHeavy(stage, { launcher: launcherOf(heavy), reason: 'too_heavy', caption: describeOutcome(heavy, heavySim).caption }),
+        '4b Wrong orbit: GTO is not MEO (NO-GO simulated)': () => S.tooHeavy(stage, { launcher: launcherOf(gto), reason: 'wrong_orbit', caption: describeOutcome(gto, gtoSim).caption }),
+      },
+      'Operations': {
+        '5 LEO 550 km (IoT)': orbitScene(comms),
+        '5 SSO 550–650 km (weather)': orbitScene(weather),
+        '5 MEO 23,222 km (navigation, true scale)': orbitScene(nav),
+        '6 Power dead: no battery (stays dark)': async () => { const sim = simOf(noBattery, (r) => r.reachedOrbit, true); stage.__orbitView = null; await S.orbitView(stage, { state: noBattery, sim, toMonth: 1 }); },
+        '8 Comms loss: wrong ground segment': async () => { const sim = simOf(wrongGround, (r) => r.reachedOrbit, true); stage.__orbitView = null; await S.orbitView(stage, { state: wrongGround, sim, toMonth: 1 }); },
+      },
+      'Simulated events': {
+        '9 Solar storm (safe mode)': ev(S.solarFlare, { choiceIndex: 0 }),
+        '9b Solar storm (keep working)': ev(S.solarFlare, { choiceIndex: 1 }),
+        '10 Debris (safe attitude)': ev(S.debris, { choiceIndex: 0 }),
+        '10b Debris (accept risk)': ev(S.debris, { choiceIndex: 1 }),
+        '11 Hardware fault': ev(S.hardwareFailure, { itemId: 'payload_iot_sdr', choiceIndex: 0 }),
+        '12 Budget cut': ev(S.EVENT_SCENES.budget_cut, { front: 'The programme budget was reduced.', back: '−10% service' }),
+        '12b Launch delay': ev(S.EVENT_SCENES.launch_delay, { front: 'A sensor shows a strange reading.', back: '+3 mo delay · −25% of reserve' }),
+        '13 Huge storm in view (weather)': ev(S.EVENT_SCENES.rare_storm, { bonus: '+5% service' }),
+      },
+      'Before launch & design screens': {
+        'P1 Payload views (all)': async () => {
+          for (const id of ['payload_iot_sdr', 'clock_phm_rubidium_4', 'payload_mw_radiometer', 'dist_rgb_camera']) {
+            await S.instrumentView(stage, { instrumentId: id, label: id });
+          }
+        },
+        'P1 Balance scale (6U fits → too heavy)': async () => {
+          await S.balanceScale(stage, { massKg: 8.68, capacityKg: 12, fromAngle: 0, rocketName: '6U dispenser' });
+          await S.balanceScale(stage, { massKg: 12.08, capacityKg: 12, fromAngle: -9, rocketName: '6U dispenser' });
+        },
+        'P1 Go/No-Go console': () => S.goConsole(stage, { roles: [
+          { icon: 'star', name: 'Mission Director', who: 'Ada', vote: 'go' }, { icon: 'gear', name: 'Systems Engineer', who: 'Ben', vote: 'go' },
+          { icon: 'flask', name: 'Lead Scientist', who: 'Cy', vote: 'nogo', reason: 'The mission payload is not right' }, { icon: 'rocket', name: 'Flight Dynamics', who: 'Dee', vote: 'go' }], caption: 'Not everyone agreed — the majority said GO.' }),
+        'P1 NO-GO console (launch scrubbed)': () => S.goConsole(stage, { roles: [
+          { icon: 'star', name: 'Mission Director', who: 'Ada', vote: 'nogo', reason: 'Hard gate failed' }, { icon: 'gear', name: 'Systems Engineer', who: 'Ben', vote: 'nogo', reason: 'Hard gate failed' }], caption: 'NO-GO. Launch scrubbed: no frequency licence or disposal plan.' }),
+        'P1 Factory-to-pad montage': () => S.montage(stage, { state: comms, devMonths: 18 }),
+      },
+      'Maps & end of life': {
+        'P2 Ground track LEO': () => S.groundTrack(stage, { orbitId: 'leo_550' }),
+        'P2 Ground track SSO': () => S.groundTrack(stage, { orbitId: 'sso_550_650' }),
+        'P2 Ground track MEO (56°)': () => S.groundTrack(stage, { orbitId: 'meo_gnss' }),
+        'P2 GEO (fixed spot)': () => S.groundTrack(stage, { orbitId: 'geo' }),
+        'P2 Ground stations map (IoT gateways)': () => S.groundTrack(stage, { orbitId: 'leo_550', groundId: 'gs_iot_gateways', mode: 'stations' }),
+        'P2 Ground stations map (GNSS monitoring)': () => S.groundTrack(stage, { orbitId: 'meo_gnss', groundId: 'gs_gnss_monitoring', mode: 'stations' }),
+        'P2 End of life: deorbit (LEO)': () => S.endOfLife(stage, { orbitId: 'leo_550' }),
+        'P2 End of life: leave MEO (graveyard)': () => S.endOfLife(stage, { orbitId: 'meo_gnss' }),
+        'P2 End of life: no disposal plan': () => S.endOfLife(stage, { orbitId: 'leo_550', disposal: false }),
+        'D1 Burn up (oxide cloud drifts to the ozone layer)': () => S.burnUp(stage, { kg: 8.68 * 0.12 }),
+        'D2 Controlled ocean reentry (Point Nemo)': () => S.oceanReentry(stage, {}),
+        'D3 Leave in orbit / disposal orbit': () => S.endOfLife(stage, { orbitId: 'meo_gnss' }),
+        'D4 Docking plate: tug removes it': () => S.tugRemoval(stage, {}),
+      },
+      'Mission end & lessons': {
+        '14 Success': () => S.missionSuccess(stage, { name: 'Connect Remote Sensors', team: 'Team Rocket', orbitId: 'leo_550', grade: 'A', caption: 'Mission accomplished! Every KPI was met.' }),
+        '15 Partial': () => S.missionPartial(stage, { name: 'Weather Under the Clouds', team: 'Solo', orbitId: 'sso_550_650', grade: 'C', missed: ['Valid observations ≥90%', 'Inside the model budget'], caption: 'Your satellite worked, but missed: valid observations, budget.' }),
+        '16 Lost (no battery)': () => S.missionLost(stage, { state: noBattery, cause: 'power', caption: describeOutcome(noBattery, simOf(noBattery, () => true, true)).caption, tip: 'Check shadow power: 60% of the battery must cover the eclipse.' }),
+        '17 Constellation: 1 satellite → no fix, 4 → 3D fix': () => S.constellationFix(stage, { hold: true }),
+      },
+    };
+
+    const run = async (name, fn) => {
+      status.textContent = `Playing: ${name}…`;
+      const v = await fn();
+      status.textContent = `Done: ${name}${typeof v === 'string' && v !== 'done' ? ` (${v})` : ''}`;
+    };
+    document.getElementById('groups').replaceChildren(...Object.entries(GROUPS).map(([g, scenes]) => h('section', {}, [
+      h('h2', {}, g),
+      h('div', { class: 'anim-debug-buttons' }, Object.entries(scenes).map(([name, fn]) => h('button', { class: 'btn btn-small', type: 'button', 'data-demo': name, onClick: () => run(name, fn) }, name))),
+    ])));
+    window.__DEMOS = Object.assign({}, ...Object.values(GROUPS));
+    window.__runDemo = (name) => run(name, window.__DEMOS[name]);
+  </script>
+</body>
+</html>
